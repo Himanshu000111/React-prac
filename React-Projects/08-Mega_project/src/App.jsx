@@ -1,16 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
-
+import {useDispatch} from 'react-redux'
+import authservice from './appwrite/Auth_Service'
+import { logIn, logOut } from './store/Authslice'
+import { Header, Footer } from './components'
 function App() {
-  //console.log(import.meta.env.VITE_APPWRITE_URL);
+const [loading, setLoading] = useState(true)
+const dispatch = useDispatch()
 
-  return (
-    <>
-    <h1>Hello</h1>
-    </>
-  )
+useEffect(()=> {
+  authservice.getUserAcc()
+  .then((userData)=> {
+    if(userData) {
+      dispatch(logIn({userData}))
+    }
+    else {
+      dispatch(logOut())
+    }
+  })
+  .finally(() => setLoading(false) )
+},[])
+
+return !loading ? (
+  <div className='w-full bg-zinc-300 h-screen'>
+    <div className='w-full h-screen flex justify-between flex-col p-10'>
+    <Header />
+    <Footer />
+  </div>
+  </div>
+) : null
 }
 
 export default App
