@@ -5,6 +5,11 @@ import LogOutBtn from "./LogOutBtn";
 import Button from "./Button";
 import Input from "./Input";
 import Container from "./Container";
+import Login from "./Login";
+import Signup from "./Signup";
+import PostForm from "./PostForm";
+import PostCard from "./PostCard";
+import Protected from "./AuthLayout";
 
 export {
     Header,
@@ -13,5 +18,10 @@ export {
     LogOutBtn,
     Button,
     Input,
-    Container
+    Container,
+    Login,
+    Signup,
+    PostForm,
+    PostCard,
+    Protected
 }
