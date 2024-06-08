@@ -6,6 +6,7 @@ import { logIn } from '../store/Authslice'
 import Input from './Input'
 import Logo from './Logo'
 import Button from './Button'
+import {useForm} from "react-hook-form"
 
 function Login() {
   const Navigate = useNavigate()
@@ -64,7 +65,7 @@ function Login() {
           })}
           />
           <Input 
-          label = "Password: "
+          label = "Password:"
           type= "password"
           placeholder = "Enter Your Password"
           {...register('password', {
@@ -72,7 +73,7 @@ function Login() {
           })}
           />
         <Button
-        btntxt= "SigIn"
+        btntxt= "SignIn"
         type= 'submit' 
         className='w-full'/>
         </div>

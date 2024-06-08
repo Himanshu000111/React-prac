@@ -4,38 +4,38 @@ import { useNavigate } from 'react-router-dom'
 import LogOutBtn from './LogOutBtn'
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
-
+import Container from './Container'
 
 function Header() {
-const authStatus = useSelector((state) => state.auth.status)
-const Navigate = useNavigate()
-const NavItems = [
-  {
-    name: 'Home',
-    slug: '/',
-    active: 'true'
-  },
-  {
-    name: "Login",
-    slug: "/login",
-    active: !authStatus,
-},
-{
-    name: "Signup",
-    slug: "/signup",
-    active: !authStatus,
-},
-{
-    name: "All Posts",
-    slug: "/all-posts",
-    active: authStatus,
-},
-{
-    name: "Add Post",
-    slug: "/add-post",
-    active: authStatus,
-}
-]
+ const authStatus = useSelector((state) => state.status)
+ const Navigate = useNavigate()
+    const NavItems = [
+    {
+     name: 'Home',
+     slug: '/',
+     active: 'true'
+   },
+   {
+     name: "Login",
+     slug: "/login",
+     active: !authStatus,
+ },
+ {
+     name: "Signup",
+     slug: "/signup",
+     active: !authStatus,
+ },
+ {
+     name: "All Posts",
+     slug: "/all-posts",
+     active: authStatus,
+ },
+ {
+     name: "Add Post",
+     slug: "/add-post",
+     active: authStatus,
+ }
+ ]
 
 
 
@@ -59,7 +59,7 @@ const NavItems = [
         </li>
       ) : null  
     )}
-    {authStatus && 
+  {authStatus && 
     <li>
     <LogOutBtn />
     </li>}
